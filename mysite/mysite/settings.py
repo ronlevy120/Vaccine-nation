@@ -25,7 +25,7 @@ SECRET_KEY = 'kv&&mycbjz-n)f#s*)o9l*q2#g8dl5z7i&78*w4kwy8ae62@(q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['vaccine-nation.herokuapp.com']
 
 
 # Application definition
