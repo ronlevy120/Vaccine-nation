@@ -33,6 +33,8 @@ DEBUG = False
 ALLOWED_HOSTS = ['vaccine-nation.herokuapp.com', '127.0.0.1']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),)
 STATIC_URL = '/static'
 
 # Application definition
@@ -136,5 +138,3 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
 django_heroku.settings(locals())
-
-DISABLE_COLLECTSTATIC = 1
