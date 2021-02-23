@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'kv&&mycbjz-n)f#s*)o9l*q2#g8dl5z7i&78*w4kwy8ae62@(q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['vaccine-nation.herokuapp.com']
+ALLOWED_HOSTS = ['vaccine-nation.herokuapp.com', '127.0.0.1']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static'
