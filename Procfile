@@ -1,1 +1,1 @@
-web: gunicorn Vaccine-nation.wsgi
+web: gunicorn mysite.wsgi

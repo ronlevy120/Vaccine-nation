@@ -29,6 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['vaccine-nation.herokuapp.com']
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_URL = '/static'
 
 # Application definition
 
