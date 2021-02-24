@@ -130,10 +130,10 @@ def preprocess_input(user_input, stop_words=set(stopwords.words('english')), wnl
     df['tokenized'] = df['text'].apply(word_tokenize)
     df['tokenized'] = df['tokenized'].apply(lambda x: [word for word in x if word not in stop_words])
     df['pos_tags'] = df['tokenized'].apply(nltk.tag.pos_tag)
-    # df['tokenized'] = df['pos_tags'].apply(lambda x: [(word, get_wordnet_pos(pos_tag)) for (word, pos_tag) in x])
-    # df['tokenized'] = df['tokenized'].apply(lambda x: [wnl.lemmatize(word, tag) for word, tag in x])
-    # df['n_words'] = df['text'].apply(lambda x: len(x.split()))
-    # df['tokenized_common'] = df['tokenized'].apply(lambda x: most_common_token(x))
+    df['tokenized'] = df['pos_tags'].apply(lambda x: [(word, get_wordnet_pos(pos_tag)) for (word, pos_tag) in x])
+    df['tokenized'] = df['tokenized'].apply(lambda x: [wnl.lemmatize(word, tag) for word, tag in x])
+    df['n_words'] = df['text'].apply(lambda x: len(x.split()))
+    df['tokenized_common'] = df['tokenized'].apply(lambda x: most_common_token(x))
     #
     # for word in mostcommon:
     #     df[word] = 0
