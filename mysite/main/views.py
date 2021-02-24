@@ -1,9 +1,8 @@
 from django.shortcuts import render
 import numpy as np
 from .forms import CreateNewList
-from .prep import preprocess_input
+from mysite.main.prep import preprocess_input
 import pickle
-
 
 model = pickle.load(open('mysite/main/xgboost.pickle', 'rb'))
 
@@ -41,6 +40,4 @@ def idea(response):
 
 def team(response):
     return render(response, "main/team.html", {})
-
-
 
