@@ -161,7 +161,7 @@ def test(response):
         else:
             print("NOT VALID")
             result = "NOT VALID"
-        return render(response, 'main/test.html', {"form": form, "output": result})
+        return render(response, 'main/test.html', {"form": form, "output": preds})
 
     else:
         form = CreateNewList()
