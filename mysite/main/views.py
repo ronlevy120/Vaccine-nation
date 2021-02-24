@@ -4,7 +4,7 @@ from .forms import CreateNewList
 from mysite.main.prep import preprocess_input
 import pickle
 
-model = pickle.load(open('xgboost.pkl', 'rb'))
+model = pickle.load(open('mysite/main/xgboost.pkl', 'rb'))
 
 def home(response):
     return render(response, 'main/home.html', {})
