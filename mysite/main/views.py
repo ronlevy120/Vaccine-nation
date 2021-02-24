@@ -15,6 +15,7 @@ def home(response):
 def test(response):
     if response.method == "POST":
         form = CreateNewList(response.POST)
+        print(f"form: {form}")
         if form.is_valid():
             print("FORM IS VALID")
             n = form.cleaned_data["name"]
@@ -23,6 +24,7 @@ def test(response):
             result = np.asarray([np.argmax(line) for line in preds])[0]
         else:
             print("NOT VALID")
+            result = "NOT VALID"
         return render(response, 'main/test.html', {"form": form, "output": result})
 
     else:
