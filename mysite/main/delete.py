@@ -8,7 +8,7 @@ def prep(n):
     df = preprocess_input(n)
     preds = model.predict_proba(df)
     result = np.asarray([np.argmax(line) for line in preds])[0]
-    return result
+    return preds[0, 1]
 
 
 n = 'hhh'

@@ -155,7 +155,7 @@ def test(response):
             print(f"n: {n}")
             df = preprocess_input(n)
             print(f"df: {df}")
-            preds = model.predict_proba(df)[0][1]
+            preds = model.predict_proba(df)[0, 1]
             result = np.asarray([np.argmax(line) for line in preds])[0]
             print(f"result type: {type(result)}, result: {result}, prediction: {preds}")
         else:
