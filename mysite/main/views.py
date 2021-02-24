@@ -159,7 +159,7 @@ def test(response):
             # result = np.asarray([np.argmax(line) for line in prediction])[0]
             # result_final = 'Anti-Vaccine' if result == 1 else 'Pro-Vaccine'
             preds = prediction[0, 1]
-            result = 'Anti-Vaccine' if preds >= 0.3 else 'Pro-Vaccine'
+            result = 'Anti-Vaccine' if preds >= 0.2 else 'Pro-Vaccine'
 
             print(f"result type: {type(result)}, result: {result}, prediction: {preds}")
             return render(response, 'main/test.html', {"form": form, "output": result, "preds": preds})
