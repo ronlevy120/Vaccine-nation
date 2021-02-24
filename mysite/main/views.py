@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import numpy as np
 from .forms import CreateNewList
-from prep import preprocess_input
+from .prep import preprocess_input
 import pickle
 
 
