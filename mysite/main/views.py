@@ -15,7 +15,7 @@ from nltk.corpus import stopwords
 from nltk.corpus import wordnet
 import re
 
-model = pickle.load(open('mysite/main/xgboost.pkl', 'rb'))
+model = pickle.load(open('mysite/main/xgboost.pkl', 'rb')) #The right path
 # model = pickle.load(open('xgboost.pkl', 'rb'))
 
 def home(response):
