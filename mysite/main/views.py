@@ -5,7 +5,7 @@ from prep import preprocess_input
 import pickle
 
 
-# model = pickle.load(open('mysite/main/model.pickle', 'rb'))
+model = pickle.load(open('mysite/main/model.pickle', 'rb'))
 
 
 def home(response):
@@ -36,4 +36,6 @@ def idea(response):
 
 def team(response):
     return render(response, "main/team.html", {})
+
+
 
