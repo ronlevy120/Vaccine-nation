@@ -143,7 +143,7 @@ def preprocess_input(user_input, stop_words=set(stopwords.words('english')), wnl
     # to_drop = ['text', 'tokenized', 'pos_tags', 'tokenized_common']
     # df = df.drop(to_drop, axis=1)
     #
-    return df['text']
+    return df
 
 def test(response):
     if response.method == "POST":
