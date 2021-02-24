@@ -18,10 +18,12 @@ def test(response):
             print("FORM IS VALID")
             n = form.cleaned_data["name"]
             print(f"n: {n}")
-            df = preprocess_input(n)
-            print(f"df: {df}")
-            preds = model.predict_proba(df)
-            result = np.asarray([np.argmax(line) for line in preds])[0]
+            result = preprocess_input('hhh')
+            print(f"result: {result}")
+            # df = preprocess_input(n)
+            # print(f"df: {df}")
+            # preds = model.predict_proba(df)
+            # result = np.asarray([np.argmax(line) for line in preds])[0]
             print(f"result type: {type(result)}, result: {result}")
         else:
             print("NOT VALID")
