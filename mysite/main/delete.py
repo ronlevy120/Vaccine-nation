@@ -2,7 +2,7 @@ from mysite.main.prep import preprocess_input
 import pickle
 import numpy as np
 
-model = pickle.load(open('xgboost.pickle', 'rb'))
+model = pickle.load(open(r'\mysite\main\xgboost.pickle', 'rb'))
 
 def prep(n):
     df = preprocess_input(n)
