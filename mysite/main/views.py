@@ -134,15 +134,15 @@ def preprocess_input(user_input, stop_words=set(stopwords.words('english')), wnl
     df['tokenized'] = df['tokenized'].apply(lambda x: [wnl.lemmatize(word, tag) for word, tag in x])
     df['n_words'] = df['text'].apply(lambda x: len(x.split()))
     df['tokenized_common'] = df['tokenized'].apply(lambda x: most_common_token(x))
-    #
-    # for word in mostcommon:
-    #     df[word] = 0
-    # for word in df.tokenized_common:
-    #     df[word] = 1
-    #
-    # to_drop = ['text', 'tokenized', 'pos_tags', 'tokenized_common']
-    # df = df.drop(to_drop, axis=1)
-    #
+
+    for word in mostcommon:
+        df[word] = 0
+    for word in df.tokenized_common:
+        df[word] = 1
+
+    to_drop = ['text', 'tokenized', 'pos_tags', 'tokenized_common']
+    df = df.drop(to_drop, axis=1)
+
     return df
 
 def test(response):
@@ -153,12 +153,10 @@ def test(response):
             print("FORM IS VALID")
             n = form.cleaned_data["name"]
             print(f"n: {n}")
-            result = preprocess_input('hhh')
-            print(f"result: {result}")
-            # df = preprocess_input(n)
-            # print(f"df: {df}")
-            # preds = model.predict_proba(df)
-            # result = np.asarray([np.argmax(line) for line in preds])[0]
+            df = preprocess_input(n)
+            print(f"df: {df}")
+            preds = model.predict_proba(df)
+            result = np.asarray([np.argmax(line) for line in preds])[0]
             print(f"result type: {type(result)}, result: {result}")
         else:
             print("NOT VALID")
