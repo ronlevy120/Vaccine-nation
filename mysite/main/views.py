@@ -1,8 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
+import numpy as np
 from .models import ToDoList, Item
 from .forms import CreateNewList
+from .prep import preprocess_input
+import pickle
 
+
+model = pickle.load(open('mysite/main/xgboost.sav', 'rb'))
 
 def home(response):
     return render(response, 'main/home.html', {})
@@ -14,9 +19,12 @@ def test(response):
         if form.is_valid():
             print("FORM IS VALID")
             n = form.cleaned_data["name"]
+            df = preprocess_input(n)
+            preds = model.predict_proba(df)
+            result = np.asarray([np.argmax(line) for line in preds])[0]
         else:
             print("NOT VALID")
-        return render(response, 'main/test.html', {"form": form, "output": n})
+        return render(response, 'main/test.html', {"form": form, "output": result})
 
     else:
         form = CreateNewList()
