@@ -1,4 +1,4 @@
-from mysite.main.prep import preprocess_input
+from mysite.main.views import preprocess_input
 import pickle
 import numpy as np
 

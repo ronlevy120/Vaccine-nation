@@ -15,7 +15,8 @@ from nltk.corpus import stopwords
 from nltk.corpus import wordnet
 import re
 
-model = pickle.load(open('mysite/main/xgboost.pkl', 'rb'))
+# model = pickle.load(open('mysite/main/xgboost.pkl', 'rb'))
+model = pickle.load(open('xgboost.pkl', 'rb'))
 
 def home(response):
     return render(response, 'main/home.html', {})
@@ -112,7 +113,7 @@ def most_common_token(token, mostcommon=mostcommon):
     return new_token
 
 
-def preprocess_input(user_input, stop_wrds=set(stopwords.words('english')), wl=WordNetLemmatizer()):
+def preprocess_input(user_input, stop_words=set(stopwords.words('english')), wnl=WordNetLemmatizer()):
     x = user_input
     for_df = {'text': [x], 'user_followers': [2207], 'favorites': [0], 'retweets': [0], 'is_retweet': [1]}
     df = pd.DataFrame(for_df)
