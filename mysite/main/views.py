@@ -157,7 +157,7 @@ def test(response):
             print(f"df: {df}")
             preds = model.predict_proba(df)
             result = np.asarray([np.argmax(line) for line in preds])[0]
-            print(f"result type: {type(result)}, result: {result}")
+            print(f"result type: {type(result)}, result: {result}, prediction: {preds}")
         else:
             print("NOT VALID")
             result = "NOT VALID"
