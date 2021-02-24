@@ -1,9 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
 import numpy as np
-from .models import ToDoList, Item
 from .forms import CreateNewList
-from .prep import preprocess_input
+from prep import preprocess_input
 import pickle
 
 
