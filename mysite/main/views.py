@@ -15,8 +15,8 @@ from nltk.corpus import stopwords
 from nltk.corpus import wordnet
 import re
 
-model = pickle.load(open('mysite/main/xgboost.pkl', 'rb')) # test
-# model = pickle.load(open('xgboost.pkl', 'rb'))
+# model = pickle.load(open('mysite/main/xgboost.pkl', 'rb')) # test
+model = pickle.load(open('xgboost.pkl', 'rb'))
 
 def home(response):
     return render(response, 'main/home.html', {})
@@ -155,13 +155,15 @@ def test(response):
             print(f"n: {n}")
             df = preprocess_input(n)
             print(f"df: {df}")
-            preds = model.predict_proba(df)[0, 1]
-            result = np.asarray([np.argmax(line) for line in preds])[0]
+            prediction = model.predict_proba(df)
+            result = np.asarray([np.argmax(line) for line in prediction])[0]
+            result_final = 'Anti-Vaccine' if result == 1 else 'Pro-Vaccine'
+            preds = prediction[0, 1]
             print(f"result type: {type(result)}, result: {result}, prediction: {preds}")
         else:
             print("NOT VALID")
             result = "NOT VALID"
-        return render(response, 'main/test.html', {"form": form, "output": result, "preds": preds})
+        return render(response, 'main/test.html', {"form": form, "output": result_final, "preds": preds})
 
     else:
         form = CreateNewList()
