@@ -2,7 +2,8 @@
 
 {% block title %}Create new list{% endblock %}
 {% block content %}
-Insert tweet
+<h2>By writing a tweet in the text box below, you will be able to check our model prediction in real time, the prediction will classify if the tweet is pro or anti covid-19.
+</h2>
 <form method="POST" action="/test/" class="form-group">
     {% csrf_token %}
     <div class="input-group mb-3">
@@ -11,6 +12,7 @@ Insert tweet
         </div>
         {{form.name}}
     </div>
-    {{output}}
+    <h2>When 0 is pro-vaccine and 1 is anti-vaccine, the prediction is that this is: {{output}}.></h2>
+    <h2>The probability that this is a anti vaccine tweet is: {{preds}}</h2>
 </form>
 {% endblock %}

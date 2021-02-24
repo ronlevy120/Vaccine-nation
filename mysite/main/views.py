@@ -155,13 +155,13 @@ def test(response):
             print(f"n: {n}")
             df = preprocess_input(n)
             print(f"df: {df}")
-            preds = model.predict_proba(df)
+            preds = model.predict_proba(df)[0][1]
             result = np.asarray([np.argmax(line) for line in preds])[0]
             print(f"result type: {type(result)}, result: {result}, prediction: {preds}")
         else:
             print("NOT VALID")
             result = "NOT VALID"
-        return render(response, 'main/test.html', {"form": form, "output": preds})
+        return render(response, 'main/test.html', {"form": form, "output": result, "preds": preds})
 
     else:
         form = CreateNewList()
