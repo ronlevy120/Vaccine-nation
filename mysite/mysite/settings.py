@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
-import django_heroku
+# import django_heroku
 
 
 
@@ -136,4 +136,4 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
