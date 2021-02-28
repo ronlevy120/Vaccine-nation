@@ -1,4 +1,4 @@
 wordnet
 stopwords
-averaged_perceptron_tagger
 punkt
+averaged_perceptron_tagger
