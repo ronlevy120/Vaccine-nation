@@ -10,6 +10,9 @@ The coronavirus is affecting 219 countries and territories, hitting almost every
 
 The site allows you to view the resistance level to vaccines in every country in the world.
 
+# Medium Article
+[Link to the medium article](https://nofar-herman.medium.com/global-covid-17-anti-vaxxers-detection-76a768342c28).
+
 
 # How to run the code
 first, clone this repo:<br>
